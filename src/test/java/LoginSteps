@@ -1,0 +1,100 @@
+package ecolab.koerber.stepdefinition.loginsteps;
+
+import ecolab.koerber.base.BaseTest;
+import ecolab.koerber.base.DriverManager;
+//import ecolab.connect.pages.CommonPageActions;
+import ecolab.koerber.pages.login.LoginPage;
+import ecolab.koerber.utils.PropertyStorage;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+
+public class LoginSteps extends BaseTest {
+
+	LoginPage loginpage = new LoginPage();
+
+	private String k1OneUsername = PropertyStorage.getK1UsernameOne();
+	private String k1OnePassword = PropertyStorage.getK1PasswordOne();
+	private String k1TwoUsername = PropertyStorage.getK1UsernameTwo();
+	private String k1TwoPassword = PropertyStorage.getK1PasswordTwo();
+	private String k1ThreeUsername = PropertyStorage.getK1UsernameThree();
+	private String k1ThreePassword = PropertyStorage.getK1PasswordThree();
+	private String k1FourUsername = PropertyStorage.getK1UsernameFour();
+	private String k1FourPassword = PropertyStorage.getK1PasswordFour();
+	private String k1M11OneUsername = PropertyStorage.getK1M11UsernameOne();
+	private String k1M11OnePassword = PropertyStorage.getK1M11PasswordOne();
+
+	private String k1FiveUsername = PropertyStorage.getK1UsernameFive();
+
+	private String k1SixUsername = PropertyStorage.getK1UsernameSix();
+
+	private String k1SevenUsername = PropertyStorage.getK1UsernameSeven();
+
+	private String k1EightUsername = PropertyStorage.getK1UsernameEight();
+
+	private String k1NineUsername = PropertyStorage.getK1UsernameNine();
+
+	@Given("^Login As Manager one user")
+	public void login_As_Manager_One_User() {
+		loginpage.enterName(k1OneUsername);
+		loginpage.enterPassword(k1OnePassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("^Login As Manager Two User$")
+	public void login_As_Manager_two_User() {
+		loginpage.enterName(k1TwoUsername);
+		loginpage.enterPassword(k1TwoPassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("^Login As Manager Three User$")
+	public void login_As_Manager_three_User() {
+		loginpage.enterName(k1ThreeUsername);
+		loginpage.enterPassword(k1ThreePassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("^Login As Manager Four User$")
+	public void login_As_Manager_four_User() {
+		loginpage.enterName(k1FourUsername);
+		loginpage.enterPassword(k1FourPassword);
+		loginpage.clickSignInButton();
+//		DriverManager.getWrapperClass().waitForPageLoaderToDisappear();
+	}
+
+	@Given("^Login As Manager11 one user")
+	public void login_As_Manager11_One_User() {
+		loginpage.enterName(k1M11OneUsername);
+		loginpage.enterPassword(k1M11OnePassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("Login As Manager Five User")
+	public void login_As_Manager_five_User() {
+		loginpage.enterName(k1FiveUsername);
+		loginpage.enterPassword(k1FourPassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("Login As Manager Six User")
+	public void login_As_Manager_Six_User() {
+		loginpage.enterName(k1SixUsername);
+		loginpage.enterPassword(k1FourPassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("Login As Manager Seven User")
+	public void login_As_Manager_Seven_User() {
+		loginpage.enterName(k1SevenUsername);
+		loginpage.enterPassword(k1FourPassword);
+		loginpage.clickSignInButton();
+	}
+
+	@Given("Login As Manager Eight User")
+	public void login_As_Manager_Eight_User() {
+		loginpage.enterName(k1EightUsername);
+		loginpage.enterPassword(k1FourPassword);
+		loginpage.clickSignInButton();
+	}
+}
