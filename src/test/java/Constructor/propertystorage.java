@@ -259,3 +259,102 @@ public class PropertyStorage {
 		return connectionUrl;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+==========================
+
+
+	
+public class RandomValue {
+
+  private static ThreadLocal<Long> randomNumber = new ThreadLocal<>();
+  private static ThreadLocal<Long> tenDigitRandomNumber = new ThreadLocal<>();
+  private static ThreadLocal<String> randomText = new ThreadLocal<>();
+
+  public long getRandomNumber() {
+    return randomNumber.get();
+  }
+
+  public void setRandomNumber(long value) {
+    randomNumber.set(value);
+  }
+
+  public String getRandomText() {
+    return randomText.get();
+  }
+
+  public void setRandomText(String value) {
+    randomText.set(value);
+  }
+
+  public void removeRandomNumber() {
+    randomNumber.remove();
+  }
+
+  public void removeRandomText() {
+    randomText.remove();
+  }
+
+  public long getTenDigitRandomNumber() {
+    return tenDigitRandomNumber.get();
+  }
+
+  public void setTenDigitRandomNumber(long value) {
+    tenDigitRandomNumber.set(value);
+  }
+}
+
+
+========
+	
+import java.util.List;
+import ecolab.koerber.utils.KeyStorage;
+
+public class WindowsStorage {
+
+  private WindowsStorage() {
+
+  }
+
+  private static KeyStorage<String> windows = new KeyStorage<>();
+
+  public static void addWindow(String windowHandle) {
+    windows.add(windowHandle);
+  }
+
+  public static String getActiveWindow() {
+    return windows.getLastKey();
+  }
+
+  public static String getPreviousWindow() {
+    return windows.getKey(windows.size() - 2);
+  }
+
+  public static List<String> getAllWindows() {
+    return windows.getAllKeys();
+  }
+
+  public static String popWindow() {
+    String handle = getActiveWindow();
+    windows.removeKey(handle);
+    removeActiveWindow();
+    return handle;
+  }
+
+  public static void removeActiveWindow() {
+    windows.removeLastKey();
+  }
+
+  public static void clear() {
+    windows.clear();
+  }
+}
